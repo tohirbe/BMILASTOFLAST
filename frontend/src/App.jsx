@@ -1,6 +1,7 @@
 // Asosiy ilova - routing va layout
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
+import { SettingsProvider } from './contexts/SettingsContext'
 import PrivateRoute from './components/Common/PrivateRoute'
 import Sidebar from './components/Layout/Sidebar'
 import Header from './components/Layout/Header'
@@ -16,6 +17,11 @@ import Users from './pages/Users'
 import Upload from './pages/Upload'
 import Settings from './pages/Settings'
 import Grades from './pages/Grades'
+import GradeWindows from './pages/GradeWindows'
+import Attendance from './pages/Attendance'
+import Debts from './pages/Debts'
+import Schedule from './pages/Schedule'
+import TeacherPerformance from './pages/TeacherPerformance'
 
 const PAGE_TITLES = {
   '/': 'Dashboard',
@@ -29,6 +35,11 @@ const PAGE_TITLES = {
   '/settings': 'Sozlamalar',
   '/profile': 'Profilim',
   '/grades': 'Baholar',
+  '/grade-windows': 'Baholash oynalari',
+  '/attendance': 'Davomat',
+  '/debts': 'Qarzdorliklar',
+  '/schedule': 'Dars jadvali',
+  '/teacher-performance': "O'qituvchilar samaradorligi",
 }
 
 function AppLayout({ children, title }) {
@@ -59,86 +70,118 @@ function ProtectedPage({ children, title, permission }) {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
+    <SettingsProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
 
-          <Route path="/" element={
-            <ProtectedPage title="Dashboard" permission="view_dashboard">
-              <Dashboard />
-            </ProtectedPage>
-          } />
+            <Route path="/" element={
+              <ProtectedPage title="Dashboard" permission="view_dashboard">
+                <Dashboard />
+              </ProtectedPage>
+            } />
 
-          <Route path="/students" element={
-            <ProtectedPage title="Talabalar">
-              <Students />
-            </ProtectedPage>
-          } />
+            <Route path="/students" element={
+              <ProtectedPage title="Talabalar">
+                <Students />
+              </ProtectedPage>
+            } />
 
-          <Route path="/students/:id" element={
-            <ProtectedPage title="Talaba profili">
-              <StudentProfile />
-            </ProtectedPage>
-          } />
+            <Route path="/students/:id" element={
+              <ProtectedPage title="Talaba profili">
+                <StudentProfile />
+              </ProtectedPage>
+            } />
 
-          <Route path="/subjects" element={
-            <ProtectedPage title="Fanlar">
-              <Subjects />
-            </ProtectedPage>
-          } />
+            <Route path="/subjects" element={
+              <ProtectedPage title="Fanlar">
+                <Subjects />
+              </ProtectedPage>
+            } />
 
-          <Route path="/groups" element={
-            <ProtectedPage title="Guruhlar">
-              <Groups />
-            </ProtectedPage>
-          } />
+            <Route path="/groups" element={
+              <ProtectedPage title="Guruhlar">
+                <Groups />
+              </ProtectedPage>
+            } />
 
-          <Route path="/risk" element={
-            <ProtectedPage title="Xavf tahlili" permission="view_predictions">
-              <RiskAnalysis />
-            </ProtectedPage>
-          } />
+            <Route path="/risk" element={
+              <ProtectedPage title="Xavf tahlili" permission="view_predictions">
+                <RiskAnalysis />
+              </ProtectedPage>
+            } />
 
-          <Route path="/reports" element={
-            <ProtectedPage title="Hisobotlar">
-              <Reports />
-            </ProtectedPage>
-          } />
+            <Route path="/reports" element={
+              <ProtectedPage title="Hisobotlar">
+                <Reports />
+              </ProtectedPage>
+            } />
 
-          <Route path="/upload" element={
-            <ProtectedPage title="Ma'lumot yuklash" permission="upload_data">
-              <Upload />
-            </ProtectedPage>
-          } />
+            <Route path="/upload" element={
+              <ProtectedPage title="Ma'lumot yuklash" permission="upload_data">
+                <Upload />
+              </ProtectedPage>
+            } />
 
-          <Route path="/users" element={
-            <ProtectedPage title="Foydalanuvchilar" permission="manage_users">
-              <Users />
-            </ProtectedPage>
-          } />
+            <Route path="/users" element={
+              <ProtectedPage title="Foydalanuvchilar" permission="manage_users">
+                <Users />
+              </ProtectedPage>
+            } />
 
-          <Route path="/settings" element={
-            <ProtectedPage title="Sozlamalar">
-              <Settings />
-            </ProtectedPage>
-          } />
+            <Route path="/settings" element={
+              <ProtectedPage title="Sozlamalar">
+                <Settings />
+              </ProtectedPage>
+            } />
 
-          <Route path="/grades" element={
-            <ProtectedPage title="Baholar" permission="enter_grades">
-              <Grades />
-            </ProtectedPage>
-          } />
+            <Route path="/grades" element={
+              <ProtectedPage title="Baholar" permission="enter_grades">
+                <Grades />
+              </ProtectedPage>
+            } />
 
-          <Route path="/profile" element={
-            <ProtectedPage title="Profilim">
-              <StudentProfile />
-            </ProtectedPage>
-          } />
+            <Route path="/grade-windows" element={
+              <ProtectedPage title="Baholash oynalari" permission="manage_grade_windows">
+                <GradeWindows />
+              </ProtectedPage>
+            } />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+            <Route path="/attendance" element={
+              <ProtectedPage title="Davomat" permission="view_attendance">
+                <Attendance />
+              </ProtectedPage>
+            } />
+
+            <Route path="/debts" element={
+              <ProtectedPage title="Qarzdorliklar" permission="view_debts">
+                <Debts />
+              </ProtectedPage>
+            } />
+
+            <Route path="/schedule" element={
+              <ProtectedPage title="Dars jadvali" permission="view_schedule">
+                <Schedule />
+              </ProtectedPage>
+            } />
+
+            <Route path="/teacher-performance" element={
+              <ProtectedPage title="O'qituvchilar samaradorligi" permission="view_teacher_performance">
+                <TeacherPerformance />
+              </ProtectedPage>
+            } />
+
+            <Route path="/profile" element={
+              <ProtectedPage title="Profilim">
+                <StudentProfile />
+              </ProtectedPage>
+            } />
+
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </SettingsProvider>
   )
 }

@@ -86,6 +86,10 @@ class GradeCreate(GradeBase):
 class GradeOut(GradeBase):
     id: int
     sana: Optional[datetime] = None
+    jn_ball: Optional[float] = None
+    on_ball: Optional[float] = None
+    yn_ball: Optional[float] = None
+    yakuniy_ball: Optional[float] = None
     class Config:
         from_attributes = True
 

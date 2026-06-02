@@ -1,11 +1,11 @@
 // Dashboard - KPI kartalar va ko'p grafik
 import { useState, useEffect } from 'react'
-import { analyticsApi, groupsApi } from '../services/api'
+import { analyticsApi, groupsApi, debtsApi, attendanceApi } from '../services/api'
 import { PageLoader, ErrorState, EmptyState } from '../components/Common/Loader'
 import Heatmap from '../components/Charts/Heatmap'
 import {
   Users, TrendingUp, Award, AlertTriangle, Activity,
-  Star, TrendingDown
+  Star, TrendingDown, AlertCircle, CalendarCheck
 } from 'lucide-react'
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
@@ -78,6 +78,8 @@ export default function Dashboard() {
   const [courseStats, setCourseStats] = useState([])
   const [groups, setGroups] = useState([])
   const [filters, setFilters] = useState({})
+  const [openDebts, setOpenDebts] = useState(null)
+  const [attOverview, setAttOverview] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -107,6 +109,9 @@ export default function Dashboard() {
       setGenderStats(gen.data)
       setCourseStats(crs.data)
       setGroups(grp.data)
+      // Yangi KPIlar
+      debtsApi.openCount().then(r => setOpenDebts(r.data.ochiq_qarzdorliklar)).catch(() => {})
+      attendanceApi.overview().then(r => setAttOverview(r.data)).catch(() => {})
     } catch (e) {
       setError(e.message)
     } finally {
@@ -137,6 +142,12 @@ export default function Dashboard() {
           <KpiCard icon={Activity} label="O'rtacha davomat" value={`${overview.ortacha_davomat}%`} color="yellow" />
           <KpiCard icon={Star} label="Eng yaxshi guruh" value={overview.eng_yaxshi_guruh} color="green" />
           <KpiCard icon={TrendingDown} label="Eng zaif guruh" value={overview.eng_zaif_guruh} color="red" />
+          {openDebts !== null && (
+            <KpiCard icon={AlertCircle} label="Ochiq qarzdorliklar" value={openDebts} color="red" />
+          )}
+          {attOverview && (
+            <KpiCard icon={CalendarCheck} label="Real davomat" value={`${attOverview.o_rtacha_foiz}%`} color="yellow" sub={`${attOverview.jami_darslar} ta dars`} />
+          )}
         </div>
       )}
 

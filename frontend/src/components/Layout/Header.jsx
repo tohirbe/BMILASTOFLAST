@@ -1,6 +1,6 @@
 // Yuqori header - sarlavha va foydalanuvchi profili
-import { Bell } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
+import { useTranslation } from '../../contexts/SettingsContext'
 
 const ROL_RANGLAR = {
   admin: 'badge-blue',
@@ -9,15 +9,9 @@ const ROL_RANGLAR = {
   talaba: 'badge-red',
 }
 
-const ROL_NOMLAR = {
-  admin: 'Administrator',
-  dekanat: 'Dekanat',
-  oqituvchi: "O'qituvchi",
-  talaba: 'Talaba',
-}
-
 export default function Header({ title }) {
   const { user } = useAuth()
+  const { t } = useTranslation()
 
   return (
     <header className="bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between">
@@ -26,7 +20,7 @@ export default function Header({ title }) {
         {user && (
           <div className="flex items-center gap-3">
             <span className={ROL_RANGLAR[user.rol] || 'badge-blue'}>
-              {ROL_NOMLAR[user.rol] || user.rol}
+              {t(`role_${user.rol}`) || user.rol}
             </span>
             <div className="w-9 h-9 bg-primary-100 rounded-full flex items-center justify-center">
               <span className="text-sm font-semibold text-primary-700">

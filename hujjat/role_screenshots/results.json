@@ -1,0 +1,262 @@
+{
+  "admin": [
+    {
+      "file": "01_dashboard.png",
+      "title": "Dashboard",
+      "path": "/",
+      "kb": 107
+    },
+    {
+      "file": "02_talabalar.png",
+      "title": "Talabalar roʻyxati",
+      "path": "/students",
+      "kb": 139
+    },
+    {
+      "file": "03_talaba_profili.png",
+      "title": "Talaba profili",
+      "path": "/students/1",
+      "kb": 107
+    },
+    {
+      "file": "04_fanlar.png",
+      "title": "Fanlar",
+      "path": "/subjects",
+      "kb": 149
+    },
+    {
+      "file": "05_guruhlar.png",
+      "title": "Guruhlar",
+      "path": "/groups",
+      "kb": 129
+    },
+    {
+      "file": "06_baholar.png",
+      "title": "Baho kiritish",
+      "path": "/grades",
+      "kb": 59
+    },
+    {
+      "file": "07_baholash_oynalari.png",
+      "title": "Baholash oynalari",
+      "path": "/grade-windows",
+      "kb": 71
+    },
+    {
+      "file": "08_davomat.png",
+      "title": "Davomat",
+      "path": "/attendance",
+      "kb": 126
+    },
+    {
+      "file": "09_qarzdorliklar.png",
+      "title": "Qarzdorliklar",
+      "path": "/debts",
+      "kb": 154
+    },
+    {
+      "file": "10_dars_jadvali.png",
+      "title": "Dars jadvali",
+      "path": "/schedule",
+      "kb": 141
+    },
+    {
+      "file": "11_oqituvchi_samaradorligi.png",
+      "title": "O'qituvchi samaradorligi",
+      "path": "/teacher-performance",
+      "kb": 107
+    },
+    {
+      "file": "12_xavf_tahlili.png",
+      "title": "Xavf tahlili (ML)",
+      "path": "/risk",
+      "kb": 111
+    },
+    {
+      "file": "13_hisobotlar.png",
+      "title": "Hisobotlar",
+      "path": "/reports",
+      "kb": 101
+    },
+    {
+      "file": "14_malumot_yuklash.png",
+      "title": "Ma'lumot yuklash",
+      "path": "/upload",
+      "kb": 78
+    },
+    {
+      "file": "15_foydalanuvchilar.png",
+      "title": "Foydalanuvchilar",
+      "path": "/users",
+      "kb": 83
+    },
+    {
+      "file": "16_sozlamalar.png",
+      "title": "Sozlamalar",
+      "path": "/settings",
+      "kb": 98
+    }
+  ],
+  "dekanat": [
+    {
+      "file": "01_dashboard.png",
+      "title": "Dashboard",
+      "path": "/",
+      "kb": 102
+    },
+    {
+      "file": "02_talabalar.png",
+      "title": "Talabalar",
+      "path": "/students",
+      "kb": 133
+    },
+    {
+      "file": "03_fanlar.png",
+      "title": "Fanlar",
+      "path": "/subjects",
+      "kb": 143
+    },
+    {
+      "file": "04_guruhlar.png",
+      "title": "Guruhlar",
+      "path": "/groups",
+      "kb": 123
+    },
+    {
+      "file": "05_davomat.png",
+      "title": "Davomat",
+      "path": "/attendance",
+      "kb": 121
+    },
+    {
+      "file": "06_qarzdorliklar.png",
+      "title": "Qarzdorliklar",
+      "path": "/debts",
+      "kb": 148
+    },
+    {
+      "file": "07_dars_jadvali.png",
+      "title": "Dars jadvali",
+      "path": "/schedule",
+      "kb": 135
+    },
+    {
+      "file": "08_oqituvchi_samaradorligi.png",
+      "title": "O'qituvchilar samaradorligi",
+      "path": "/teacher-performance",
+      "kb": 102
+    },
+    {
+      "file": "09_xavf_tahlili.png",
+      "title": "Xavf tahlili",
+      "path": "/risk",
+      "kb": 105
+    },
+    {
+      "file": "10_hisobotlar.png",
+      "title": "Hisobotlar",
+      "path": "/reports",
+      "kb": 96
+    },
+    {
+      "file": "11_baholash_oynalari.png",
+      "title": "Baholash oynalari",
+      "path": "/grade-windows",
+      "kb": 65
+    },
+    {
+      "file": "12_sozlamalar.png",
+      "title": "Sozlamalar",
+      "path": "/settings",
+      "kb": 91
+    }
+  ],
+  "oqituvchi": [
+    {
+      "file": "01_dashboard.png",
+      "title": "Dashboard",
+      "path": "/",
+      "kb": 97
+    },
+    {
+      "file": "02_talabalar.png",
+      "title": "O'z talabalari",
+      "path": "/students",
+      "kb": 125
+    },
+    {
+      "file": "03_baho_kiritish.png",
+      "title": "Baho kiritish",
+      "path": "/grades",
+      "kb": 46
+    },
+    {
+      "file": "04_davomat.png",
+      "title": "Davomat belgilash",
+      "path": "/attendance",
+      "kb": 117
+    },
+    {
+      "file": "05_qarzdorliklar.png",
+      "title": "Qarzdorliklar",
+      "path": "/debts",
+      "kb": 142
+    },
+    {
+      "file": "06_dars_jadvali.png",
+      "title": "Dars jadvali",
+      "path": "/schedule",
+      "kb": 122
+    },
+    {
+      "file": "07_mening_samaradorligim.png",
+      "title": "Mening samaradorligim",
+      "path": "/teacher-performance",
+      "kb": 53
+    },
+    {
+      "file": "08_sozlamalar.png",
+      "title": "Sozlamalar",
+      "path": "/settings",
+      "kb": 88
+    }
+  ],
+  "talaba": [
+    {
+      "file": "01_dashboard.png",
+      "title": "Dashboard",
+      "path": "/",
+      "kb": 82
+    },
+    {
+      "file": "02_profilim.png",
+      "title": "Profilim",
+      "path": "/profile",
+      "kb": 36
+    },
+    {
+      "file": "03_davomatim.png",
+      "title": "Davomatim",
+      "path": "/attendance",
+      "kb": 75
+    },
+    {
+      "file": "04_qarzdorliklarim.png",
+      "title": "Qarzdorliklarim",
+      "path": "/debts",
+      "kb": 71
+    },
+    {
+      "file": "05_dars_jadvali.png",
+      "title": "Dars jadvali",
+      "path": "/schedule",
+      "kb": 97
+    },
+    {
+      "file": "06_sozlamalar.png",
+      "title": "Sozlamalar",
+      "path": "/settings",
+      "kb": 82
+    }
+  ]
+}
