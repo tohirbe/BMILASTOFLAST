@@ -1,7 +1,8 @@
-// Dinamik sidebar - menyu /auth/me dan keladi
+// Dinamik sidebar - menyu /auth/me dan keladi, til SettingsContext dan
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import { useTranslation } from '../../contexts/SettingsContext'
 import {
   LayoutDashboard, Users, BookOpen, Group, AlertTriangle, BarChart2,
   Upload, UserCog, Settings, UserCircle, ClipboardList, ChevronLeft,
@@ -13,8 +14,24 @@ const ICONS = {
   Upload, UserCog, Settings, UserCircle, ClipboardList
 }
 
+// Menyu kalitlarini tarjima uchun xaritalash
+const MENU_TRANSLATION_MAP = {
+  'dashboard': 'dashboard',
+  'students': 'students',
+  'subjects': 'subjects',
+  'groups': 'groups',
+  'risk': 'risk',
+  'reports': 'reports',
+  'upload': 'upload',
+  'users': 'users',
+  'settings': 'settings',
+  'profile': 'profile',
+  'grades': 'grades',
+}
+
 export default function Sidebar() {
   const { user, menu, logout } = useAuth()
+  const { t } = useTranslation()
   const [collapsed, setCollapsed] = useState(false)
 
   return (
@@ -30,8 +47,8 @@ export default function Sidebar() {
         </div>
         {!collapsed && (
           <div>
-            <div className="font-bold text-primary-700 text-sm leading-tight">BMI Tizimi</div>
-            <div className="text-xs text-slate-400">O'zlashtirish tahlili</div>
+            <div className="font-bold text-primary-700 text-sm leading-tight">{t('system_name')}</div>
+            <div className="text-xs text-slate-400">{t('system_subtitle')}</div>
           </div>
         )}
       </div>
@@ -40,6 +57,7 @@ export default function Sidebar() {
       <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-1">
         {menu.map((item) => {
           const Icon = ICONS[item.icon] || LayoutDashboard
+          const translatedLabel = t(MENU_TRANSLATION_MAP[item.key] || item.key) || item.label
           return (
             <NavLink
               key={item.key}
@@ -53,10 +71,10 @@ export default function Sidebar() {
                   : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                 }
               `}
-              title={collapsed ? item.label : undefined}
+              title={collapsed ? translatedLabel : undefined}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
-              {!collapsed && <span>{item.label}</span>}
+              {!collapsed && <span>{translatedLabel}</span>}
             </NavLink>
           )
         })}
@@ -69,16 +87,16 @@ export default function Sidebar() {
             <div className="text-sm font-medium text-slate-800 truncate">
               {user.ism} {user.familiya}
             </div>
-            <div className="text-xs text-slate-400 capitalize">{user.rol}</div>
+            <div className="text-xs text-slate-400 capitalize">{t(`role_${user.rol}`) || user.rol}</div>
           </div>
         )}
         <button
           onClick={logout}
           className="flex items-center gap-2 w-full px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-xl transition-colors"
-          title="Chiqish"
+          title={t('logout')}
         >
           <LogOut className="w-4 h-4 flex-shrink-0" />
-          {!collapsed && <span>Chiqish</span>}
+          {!collapsed && <span>{t('logout')}</span>}
         </button>
       </div>
 
