@@ -35,6 +35,21 @@ const MENU_TRANSLATION_MAP = {
   'grade-windows': 'grade_windows',
 }
 
+// Menyu kalitlarini tarjima uchun xaritalash
+const MENU_TRANSLATION_MAP = {
+  'dashboard': 'dashboard',
+  'students': 'students',
+  'subjects': 'subjects',
+  'groups': 'groups',
+  'risk': 'risk',
+  'reports': 'reports',
+  'upload': 'upload',
+  'users': 'users',
+  'settings': 'settings',
+  'profile': 'profile',
+  'grades': 'grades',
+}
+
 export default function Sidebar() {
   const { user, menu, logout } = useAuth()
   const { t } = useTranslation()

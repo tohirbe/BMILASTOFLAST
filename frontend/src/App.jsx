@@ -147,6 +147,11 @@ export default function App() {
                 <GradeWindows />
               </ProtectedPage>
             } />
+            <Route path="/grades" element={
+              <ProtectedPage title="Baholar" permission="enter_grades">
+                <Grades />
+              </ProtectedPage>
+            } />
 
             <Route path="/attendance" element={
               <ProtectedPage title="Davomat" permission="view_attendance">
@@ -172,6 +177,11 @@ export default function App() {
               </ProtectedPage>
             } />
 
+            <Route path="/profile" element={
+              <ProtectedPage title="Profilim">
+                <StudentProfile />
+              </ProtectedPage>
+            } />
             <Route path="/profile" element={
               <ProtectedPage title="Profilim">
                 <StudentProfile />
